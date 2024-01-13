@@ -1,0 +1,112 @@
+
+#include <iostream>
+using namespace std;
+/* Write a complete C++ program (including comments) to compute the contents of a cash register at the end of the day.
+ At the start of the day, your program should ask the user for:
+ Total starting amount of cash in the register.
+ Your program should then loop for 5 customers.
+ For each customer (each iteration in the loop):
+ 1. Ask the total value of the bill.
+ 2. Check if the user is paying with cash or debit card
+ a. If the user is paying with cash, add the amount to the register.
+ b. If the user is paying with a debit card, ask if the user wants cash back. If yes, ask for the amount of cash back and subtract this 
+amount from the register.
+ After the last iteration, your program should display the following:
+ 1) Total of all sales.
+ 2) Total amount of all cash paid to the register.
+ 3) Total amount of all cash given back.
+ 4) Final balance of cash in the register.
+ Extra credit: You do not know how many customers there are! Use a trailer value or ask the user if there are more customers. Your code 
+should work for ANY number of customers.
+*/
+
+int main()
+{
+ // so numbers can be decimals
+ double startingM = 0;
+ //starting money
+ double bill = 0;
+ //bill amount
+ double cashBack = 0;
+ //money back
+ double total = 0;
+ //total with equation
+ double return2 = 0;
+ // 1double sales = 0;
+ double finalTotal;
+ //result
+ 
+ int customers = 0;
+ int num1;
+ int num2;
+ 
+ 
+ cout << "Enter total amount of cash in the register: \n";
+ cin >> startingM;
+ cout << "How many Customers: \n";
+ cin >> customers;
+ 
+ 
+ 
+ while (customers > 0)
+ {
+ // stops at given value of customers
+ cout << "What is the value of the bill: \n";
+ cin >> bill;
+ cout << "Cash or Debit\n";
+ cout << "1: Cash\n";
+ cout << "2: Debit\n";
+ cin >> num1;
+ 
+ 
+ if (num1 == 1)
+ {
+ total = startingM + bill;
+ // equation
+ cout << "total: "<< total << endl;
+ }
+ 
+ 
+ else
+ {
+ cout << "Debit Selected:\n";
+ cout << "Would you like cash back?\n";
+ cout << "1: Yes\n";
+ cout << "2: No\n";
+ cin >> num2;
+ 
+ 
+ //num2 for debit and credit
+ if (num2 == 1)
+ {
+ // 1 for cashback
+ cout << "How much cash would you like back:\n";
+ 
+ cin >> cashBack;
+ return2 = startingM - cashBack;
+ cout << return2 << endl << endl;
+ 
+ 
+ }
+ 
+ else
+ cout << "No cash back \n\n";
+ 
+ }
+ customers --;
+ // customers can stop as 0 & subracts 1 after the loop
+ 
+ /*cout << "Total of sales \n";
+ cout << "Total amount of all cash paid to the register \n";
+ cout << "Total amount of all cash given back \n";
+ cout << "Final balance of cash in the register \n";*/
+ // ^ that was a test trial 
+ 
+ 
+ }
+ finalTotal = startingM + total - cashBack;
+ cout << "Total of sales: " << startingM << endl;
+ cout << "Total amount of all cash paid to the register: "<< total << endl;
+ cout << "Total amount of all cash given back: "<< cashBack << endl;
+ cout << "Final balance of cash in the register: "<< finalTotal << endl;
+ return 0;
